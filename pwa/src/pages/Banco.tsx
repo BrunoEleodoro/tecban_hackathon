@@ -52,7 +52,7 @@ const Banco: React.FC = () => {
         text: 'Selecione um ou mais bancos para continuar',
         showConfirmButton: false,
         timer: 2000
-    })
+      })
     }
 
     const swalWithBootstrapButtons = Swal.mixin({
@@ -71,7 +71,7 @@ const Banco: React.FC = () => {
       confirmButtonText: 'Sim',
       cancelButtonText: 'Não',
       reverseButtons: true
-    }).then( async (result: any) => {
+    }).then(async (result: any) => {
       if (result.value) {
         confirm()
         return
@@ -85,8 +85,8 @@ const Banco: React.FC = () => {
           title: 'Cancelado!',
           showConfirmButton: false,
           timer: 2000
-      })
-      history.push('/login')
+        })
+        history.push('/login')
       }
     })
   }
@@ -94,8 +94,8 @@ const Banco: React.FC = () => {
   async function confirm() {
     alert(selectedItems)
     // confirma o consentimento com o backend await 
-    
-    history.push('/qrcode')
+
+    history.push('/consentimento')
     window.location.reload(false);
   }
 

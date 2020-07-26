@@ -27,6 +27,7 @@ import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import Banco from './pages/Banco';
 import QrCode from './pages/QrCode';
+import Consentimento from './pages/Consentimento';
 
 const App: React.FC = () => (
   <IonApp>
@@ -37,6 +38,7 @@ const App: React.FC = () => (
         <Route path="/banco" component={Banco} exact={true} />
         <Route path="/tipo-contrato" component={Banco} exact={true} />
         <Route path="/qrcode" component={QrCode} exact={true} />
+        <Route path="/consentimento" component={Consentimento} exact={true} />
         <Route exact path="/" render={() => <Redirect to="/login" />} />
       </IonRouterOutlet>
     </IonReactRouter>
