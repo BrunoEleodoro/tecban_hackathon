@@ -10,7 +10,7 @@ function protectedRoute(req, res, next) {
     try {
         token = token.split(' ')
         token = token[1]
-        request.get('http://arvore-auth:5001/verify?token=' + token, (error, response, body) => {
+        request.get('http://cobertura-auth:5001/verify?token=' + token, (error, response, body) => {
             if (error) {
                 res.status(403).send({ status: 403, valid: false })
             } else if (JSON.parse(body).valid != undefined && JSON.parse(body).valid == false) {
