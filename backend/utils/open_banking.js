@@ -1,6 +1,7 @@
 const request = require('request')
 const fs = require('fs')
 require('dotenv').config()
+const path = require("path");
 
 let basicB64 = process.env.BASE64;
 
@@ -13,8 +14,8 @@ function getAccessToken() {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Authorization': `Basic ${basicB64}`
             },
-            cert: fs.readFileSync('certs/client_certificate.crt'),
-            key: fs.readFileSync('certs/client_private_key.key'),
+            cert: fs.readFileSync(path.resolve(__dirname, 'certs/client_certificate.crt')),
+            key: fs.readFileSync(path.resolve(__dirname, 'certs/client_private_key.key')),
             rejectUnauthorized: false,
             form: {
                 'grant_type': 'client_credentials',
@@ -41,8 +42,8 @@ function generateConsentId(access_token) {
                 'x-fapi-interaction-id': '98c87f60-38d0-433e-83c4-0e6b9ac978ca',
                 'Authorization': `Bearer ${access_token}`
             },
-            cert: fs.readFileSync('certs/client_certificate.crt'),
-            key: fs.readFileSync('certs/client_private_key.key'),
+            cert: fs.readFileSync(path.resolve(__dirname, 'certs/client_certificate.crt')),
+            key: fs.readFileSync(path.resolve(__dirname, 'certs/client_private_key.key')),
             rejectUnauthorized: false,
             body: JSON.stringify({ "Data": { "Permissions": ["ReadAccountsBasic", "ReadAccountsDetail", "ReadBalances", "ReadBeneficiariesBasic", "ReadBeneficiariesDetail", "ReadDirectDebits", "ReadTransactionsBasic", "ReadTransactionsCredits", "ReadTransactionsDebits", "ReadTransactionsDetail", "ReadProducts", "ReadStandingOrdersDetail", "ReadProducts", "ReadStandingOrdersDetail", "ReadStatementsDetail", "ReadParty", "ReadOffers", "ReadScheduledPaymentsBasic", "ReadScheduledPaymentsDetail", "ReadPartyPSU"] }, "Risk": {} })
 
@@ -65,8 +66,8 @@ function getConsentURL(consentId) {
             'headers': {
                 'Authorization': `Basic ${basicB64}`
             },
-            cert: fs.readFileSync('certs/client_certificate.crt'),
-            key: fs.readFileSync('certs/client_private_key.key'),
+            cert: fs.readFileSync(path.resolve(__dirname, 'certs/client_certificate.crt')),
+            key: fs.readFileSync(path.resolve(__dirname, 'certs/client_private_key.key')),
             rejectUnauthorized: false,
         };
         request(options, function (error, response) {
@@ -86,8 +87,8 @@ function functionalToken(code) {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Authorization': `Basic ${basicB64}`
             },
-            cert: fs.readFileSync('certs/client_certificate.crt'),
-            key: fs.readFileSync('certs/client_private_key.key'),
+            cert: fs.readFileSync(path.resolve(__dirname, 'certs/client_certificate.crt')),
+            key: fs.readFileSync(path.resolve(__dirname, 'certs/client_private_key.key')),
             rejectUnauthorized: false,
             form: {
                 'grant_type': 'authorization_code',
