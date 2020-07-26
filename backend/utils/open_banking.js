@@ -1,7 +1,8 @@
 const request = require('request')
 const fs = require('fs')
-require('dotenv').config({ path: path.resolve(__dirname, '.env') })
 const path = require("path");
+require('dotenv').config({ path: path.resolve(__dirname, '.env') })
+
 
 let basicB64 = process.env.BASE64;
 
