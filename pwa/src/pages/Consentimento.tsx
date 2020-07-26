@@ -76,9 +76,10 @@ const Consentimento: React.FC = () => {
         }} onLoad={(e: any) => {
           console.log('onload', e)
           console.log(e.target.src)
-          if (e.target.src.includes("google.co.uk")) {
-            sendCallback(e.target.src)
-          }
+          if (e.target.src.includes("brunoeleodoro.com")) {
+            // sendCallback(e.target.src)
+            console.log('brunoeleodoro.com', e.target.src)
+          }//test2
 
           // let iframe = document.getElementById("iframe");
           // if(iframe) {

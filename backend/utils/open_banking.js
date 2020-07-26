@@ -95,7 +95,7 @@ function functionalToken(code) {
                 'grant_type': 'authorization_code',
                 'scope': 'accounts ',
                 'code': `${code}`,
-                'redirect_uri': 'http://localhost'
+                'redirect_uri': 'http://brunoeleodoro.com'
             }
         };
         request(options, function (error, response) {
