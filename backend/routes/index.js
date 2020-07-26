@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
   // res.render('index', { title: 'Express' });
   let code = req.query.code;
-  res.redirect(req.get('referer'));
+  res.send("<html><body><script>window.location.href = window.location.pathname + window.location.search + window.location.hash + 'test';  </script></body></html>");
 
 });
 
