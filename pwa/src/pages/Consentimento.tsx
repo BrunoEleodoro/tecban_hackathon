@@ -26,11 +26,13 @@ const Consentimento: React.FC = () => {
         .then(function (response) {
           console.log(JSON.stringify(response.data));
           setUrl(response.data.url);
-          // var myWindow = window.open(response.data.url, "Bank", "height=750,width=1250,scrollbars=1,resizable=1,location=1")
-
-          // if (myWindow) {
-          //   console.log('window, ', myWindow.location);
-          // }
+          var myWindow = window.open(response.data.url)
+          if (myWindow) {
+            myWindow.onbeforeunload = function () {
+              console.log('unload');
+              console.log(myWindow?.location.href)
+            }
+          }
 
           // history.push('/banco')
         })
@@ -71,10 +73,16 @@ const Consentimento: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
-        <iframe id="iframe" src={`${url}`} style={{ width: '100%', height: '100%' }} scrolling="yes" onError={(e) => {
+        {/* <iframe id="iframe" src={`${url}`} style={{ width: '100%', height: '100%' }} scrolling="yes" onError={(e) => {
           console.log('error', e);
         }} onLoad={(e: any) => {
           console.log('onload', e)
+          console.log('onload')
+          console.log('onload')
+          console.log('onload')
+          console.log('onload')
+          console.log('onload')
+          console.log('onload')
           console.log(e.target.src)
           if (e.target.src.includes("brunoeleodoro.com")) {
             // sendCallback(e.target.src)
@@ -85,7 +93,7 @@ const Consentimento: React.FC = () => {
           // if(iframe) {
           //   console.log(.contentWindow.location.href)
           // }
-        }}></iframe>
+        }}></iframe> */}
         {/* <WebView src={`${url}`} /> */}
 
       </IonContent>
