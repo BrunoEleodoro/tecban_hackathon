@@ -4,7 +4,7 @@ var connect = require('../db/connection').connect_db;
 const queries = require('../utils/queries');
 const token = require('../utils/token');
 const { protectedRoute, basicAuthRoute } = require('../middlewares/auth');
-const { getAccessToken, generateConsentId, getConsentURL } = require('../utils/open_banking');
+const { getAccessToken, generateConsentId, getConsentURL, functionalToken } = require('../utils/open_banking');
 
 router.get('/authorize', async function (req, res, next) {
   var db = await connect();
