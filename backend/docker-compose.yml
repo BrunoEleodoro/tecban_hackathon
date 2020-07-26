@@ -1,0 +1,53 @@
+version: "3.7"
+
+volumes:
+    prometheus_data: {}
+
+services:
+    cobertura-database:
+        image: mongo
+        restart: always
+        container_name: cobertura-database
+        command: mongod --port 27018
+        ports:
+            - 127.0.0.1:27018:27018
+        volumes:
+            - "./database/:/data/db:z"
+        networks:
+            - cobertura-network
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=bruno
+            - MONGO_INITDB_ROOT_PASSWORD=2eacbc3f19b759e2244009692efdf9c5
+
+    cobertura-auth:
+        restart: always
+        container_name: cobertura-auth
+        ports:
+            - 127.0.0.1:5001:5001
+        build:
+            context: ./auth
+            dockerfile: Dockerfile
+        networks:
+            - cobertura-network
+        environment:
+            - SECRET=a4e5601128109d091f1a04fb13f5de4ced4f32272f92d74f000cd49f55b93d66
+            - PORT=5001
+
+    cobertura-api:
+        container_name: cobertura-api
+        restart: always
+        ports:
+            - 4000:3000
+        depends_on:
+            - cobertura-database
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        networks:
+            - cobertura-network
+        environment:
+            - PROD=true
+            - MONGODB=mongodb://bruno:2eacbc3f19b759e2244009692efdf9c5@cobertura-database:27018/cobertura-database?authSource=admin
+            
+networks:
+    cobertura-network:

@@ -17,6 +17,7 @@ router.get('/', protectedRoute, async function (req, res, next) {
 });
 
 router.post('/', basicAuthRoute, async (req, res, next) => {
+  let imgs = req.body.imgs
   let title = req.body.title
   let description = req.body.description
   let rent_price = req.body.rent_price
@@ -24,13 +25,14 @@ router.post('/', basicAuthRoute, async (req, res, next) => {
   let iptu = req.body.iptu
   let fire_insurance = req.body.fire_insurance
   let total = req.body.total
-  if (title && description && rent_price && condominium && iptu && fire_insurance && total) {
+  if (title && imgs && description && rent_price && condominium && iptu && fire_insurance && total) {
     var db = await connect();
     queries.setDatabase(db);
 
     var result = await queries.create({
       title: title,
       description: description,
+      imgs: imgs,
       rent_price: rent_price,
       condominium: condominium,
       iptu: iptu,
