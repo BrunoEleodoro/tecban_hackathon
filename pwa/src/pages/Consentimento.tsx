@@ -12,6 +12,7 @@ const Consentimento: React.FC = () => {
   const history = useHistory()
   const [url, setUrl] = useState()
   const [loading, setLoading] = useState<boolean>(false);
+  const [myWindow, setMyWindow] = useState()
 
   useEffect(() => {
     function getURL() {
@@ -26,13 +27,17 @@ const Consentimento: React.FC = () => {
         .then(function (response) {
           console.log(JSON.stringify(response.data));
           setUrl(response.data.url);
-          var myWindow = window.open(response.data.url)
-          if (myWindow) {
-            myWindow.onbeforeunload = function () {
-              console.log('unload');
-              console.log(myWindow?.location.href)
-            }
-          }
+          // var myWindow = window.open(response.data.url, "myWindow")
+
+          // if (myWindow) {
+          //   setMyWindow(myWindow);
+          //   myWindow.onbeforeunload = function () {
+          //     // processing event here
+          //     console.log('unload');
+          //     alert("new window closed");
+          //     console.log(myWindow?.location.href)
+          //   }
+          // }
 
           // history.push('/banco')
         })
@@ -73,7 +78,7 @@ const Consentimento: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
-        {/* <iframe id="iframe" src={`${url}`} style={{ width: '100%', height: '100%' }} scrolling="yes" onError={(e) => {
+        <iframe id="iframe" src={`${url}`} style={{ width: '100%', height: '100%' }} scrolling="yes" onError={(e) => {
           console.log('error', e);
         }} onLoad={(e: any) => {
           console.log('onload', e)
@@ -93,9 +98,15 @@ const Consentimento: React.FC = () => {
           // if(iframe) {
           //   console.log(.contentWindow.location.href)
           // }
-        }}></iframe> */}
+        }}></iframe>
         {/* <WebView src={`${url}`} /> */}
-
+        {/* <button onClick={() => {
+          if(myWindow){
+            alert(myWindow.location.href)
+            myWindow.close();
+          }
+          
+        }}>Confirmar</button> */}
       </IonContent>
     </IonPage>
   )

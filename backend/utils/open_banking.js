@@ -95,7 +95,7 @@ function functionalToken(code) {
                 'grant_type': 'authorization_code',
                 'scope': 'accounts ',
                 'code': `${code}`,
-                'redirect_uri': 'http://google.co.uk'
+                'redirect_uri': 'http://tecban.brunoeleodoro.com:4000/'
             }
         };
         request(options, function (error, response) {
