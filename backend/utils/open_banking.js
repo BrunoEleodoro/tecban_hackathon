@@ -107,9 +107,54 @@ function functionalToken(code) {
     })
 }
 
+function getBasicInformation(token) {
+    return new Promise((resolve, reject) => {
+        var options = {
+            'method': 'GET',
+            'url': 'https://rs2.tecban-sandbox.o3bank.co.uk/open-banking/v3.1/aisp/party',
+            'headers': {
+                'Content-Type': 'application/json',
+                'x-fapi-financial-id': 'c3c937c4-ab71-427f-9b59-4099b7c680ab',
+                'x-fapi-interaction-id': '625705ec-abd8-450f-88aa-d70f56274510',
+                'Authorization': `Bearer ${token}`
+            }
+        };
+        request(options, function (error, response) {
+            if (error) throw new Error(error);
+            console.log(response.body);
+            let contents = JSON.parse(response.body);
+            resolve(contents)
+        });
+    })
+}
+
+function getBalance(token) {
+    return new Promise((resolve, reject) => {
+        var options = {
+            'method': 'GET',
+            'url': 'https://rs2.tecban-sandbox.o3bank.co.uk/open-banking/v3.1/aisp/balances',
+            'headers': {
+                'Content-Type': 'application/json',
+                'x-fapi-financial-id': 'c3c937c4-ab71-427f-9b59-4099b7c680ab',
+                'x-fapi-interaction-id': 'e5185f13-7436-494e-9e4c-7f32c54f7c38',
+                'Authorization': `Bearer ${token}`
+            }
+        };
+        request(options, function (error, response) {
+            if (error) throw new Error(error);
+            console.log(response.body);
+            let contents = JSON.parse(response.body);
+            resolve(contents)
+        });
+    })
+}
+
+
 module.exports = {
     getAccessToken: getAccessToken,
     generateConsentId: generateConsentId,
     getConsentURL: getConsentURL,
-    functionalToken: functionalToken
+    functionalToken: functionalToken,
+    getBasicInformation: getBasicInformation,
+    getBalance: getBalance
 }

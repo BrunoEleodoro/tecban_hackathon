@@ -4,7 +4,7 @@ var connect = require('../db/connection').connect_db;
 const queries = require('../utils/queries');
 const token = require('../utils/token');
 const { protectedRoute, basicAuthRoute } = require('../middlewares/auth');
-const { getAccessToken, generateConsentId, getConsentURL, functionalToken } = require('../utils/open_banking');
+const { getAccessToken, generateConsentId, getConsentURL, functionalToken, getBasicInformation, getBalance } = require('../utils/open_banking');
 
 router.get('/authorize', async function (req, res, next) {
   var db = await connect();
@@ -30,8 +30,16 @@ router.post('/callback', async function (req, res, next) {
     user = JSON.parse(JSON.stringify(user[0]))
     let oldId = user._id;
     delete user._id;
+
+    let basic_information = await getBasicInformation(token.access_token);
+    let balance = await getBalance(token.access_token);
+
     user.functionalToken = token;
+    user.basic_information = basic_information;
+    user.balance = balance;
+
     let result = await queries.update(oldId, user, 'users');
+
     res.json({
       status: 200,
       result: result
@@ -43,5 +51,7 @@ router.post('/callback', async function (req, res, next) {
     })
   }
 })
+
+
 
 module.exports = router;
