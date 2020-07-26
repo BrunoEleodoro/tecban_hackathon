@@ -3,13 +3,14 @@ import './Banco.css'
 import { IonPage, IonContent, IonTitle, IonList, IonItem, IonCard, IonButton, IonLoading } from '@ionic/react';
 import axios, { AxiosRequestConfig } from "axios";
 import { baseUrl } from "./constants";
-import { useHistory } from "react-router"
+import { useHistory, useLocation } from "react-router"
 import { useEffect } from 'react';
 const WebView = require('react-electron-web-view');
 
 
 const Consentimento: React.FC = () => {
   const history = useHistory()
+  const location = useLocation();
   const [url, setUrl] = useState()
   const [loading, setLoading] = useState<boolean>(false);
   const [myWindow, setMyWindow] = useState()
@@ -46,8 +47,8 @@ const Consentimento: React.FC = () => {
         });
     }
 
-    getURL();
-
+    // getURL();
+    console.log(history, location)
   }, [])
 
   function sendCallback(code: string) {
@@ -78,7 +79,7 @@ const Consentimento: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
-        <iframe id="iframe" src={`${url}`} style={{ width: '100%', height: '100%' }} scrolling="yes" onError={(e) => {
+        {/* <iframe id="iframe" src={`${url}`} style={{ width: '100%', height: '100%' }} scrolling="yes" onError={(e) => {
           console.log('error', e);
         }} onLoad={(e: any) => {
           console.log('onload', e)
@@ -98,7 +99,7 @@ const Consentimento: React.FC = () => {
           // if(iframe) {
           //   console.log(.contentWindow.location.href)
           // }
-        }}></iframe>
+        }}></iframe> */}
         {/* <WebView src={`${url}`} /> */}
         {/* <button onClick={() => {
           if(myWindow){
