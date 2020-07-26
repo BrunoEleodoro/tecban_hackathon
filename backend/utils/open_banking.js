@@ -112,6 +112,9 @@ function getBasicInformation(token) {
         var options = {
             'method': 'GET',
             'url': 'https://rs2.tecban-sandbox.o3bank.co.uk/open-banking/v3.1/aisp/party',
+            cert: fs.readFileSync(path.resolve(__dirname, 'certs/client_certificate.crt')),
+            key: fs.readFileSync(path.resolve(__dirname, 'certs/client_private_key.key')),
+            rejectUnauthorized: false,
             'headers': {
                 'Content-Type': 'application/json',
                 'x-fapi-financial-id': 'c3c937c4-ab71-427f-9b59-4099b7c680ab',
@@ -133,6 +136,9 @@ function getBalance(token) {
         var options = {
             'method': 'GET',
             'url': 'https://rs2.tecban-sandbox.o3bank.co.uk/open-banking/v3.1/aisp/balances',
+            cert: fs.readFileSync(path.resolve(__dirname, 'certs/client_certificate.crt')),
+            key: fs.readFileSync(path.resolve(__dirname, 'certs/client_private_key.key')),
+            rejectUnauthorized: false,
             'headers': {
                 'Content-Type': 'application/json',
                 'x-fapi-financial-id': 'c3c937c4-ab71-427f-9b59-4099b7c680ab',
