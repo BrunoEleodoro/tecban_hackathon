@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Login from './pages/Login';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,13 +22,21 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/* Pages */
+import Cadastro from './pages/Cadastro';
+import Login from './pages/Login';
+import Banco from './pages/Banco';
+import QrCode from './pages/QrCode';
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
         <Route path="/login" component={Login} exact={true} />
-        {/* <Route path="/cadastrar" component={Cadastrar} exact={true} /> */}
-        {/* ...routes */}
+        <Route path="/cadastro" component={Cadastro} exact={true} />
+        <Route path="/banco" component={Banco} exact={true} />
+        <Route path="/tipo-contrato" component={Banco} exact={true} />
+        <Route path="/qrcode" component={QrCode} exact={true} />
         <Route exact path="/" render={() => <Redirect to="/login" />} />
       </IonRouterOutlet>
     </IonReactRouter>

@@ -1,0 +1,45 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5% !important;
+}
+
+.text {
+    font-size: 30px;
+    margin-top: 8%;
+    margin-left: 10%;
+    padding-bottom: 0;
+    border-bottom: 2px solid #57C9F6;
+}
+
+.list {
+    margin-top: 15%;
+}
+
+.text-right {
+    text-align: right;
+    margin-right: 5%;
+    color: #58C9F7;
+    margin-top: 2%;
+}
+
+.buttonEntrar2 {
+    padding: 5%;
+    padding-right: 35%;
+    padding-left: 35%;
+    border-radius: 15px;
+    display: block;
+    background-color: #2191F2;
+    margin: 0 auto;
+    margin-top: 15%;
+}
+
+.text-conta2 {
+    text-align: center;
+    margin-top: 15%;
+}
+
+.padding {
+    padding-top: 15px;
+}

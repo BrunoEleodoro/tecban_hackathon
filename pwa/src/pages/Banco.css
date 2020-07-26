@@ -1,0 +1,42 @@
+.banco-card {
+    padding: 5%;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+
+    margin-top: 10%;
+}
+
+.selected {
+    background-color: #18A0FB;
+}
+
+.banco-title {
+    margin-top: 10%;
+    margin-left: 10%;
+}
+
+.btn-green {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 38px;
+    padding-right: 38px;
+    border-radius: 10px;
+    background-color: #25ED21;
+    margin-left: 5px;
+}
+
+.btn-red {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 38px;
+    padding-right: 38px;
+    border-radius: 10px;
+    background-color: #FF0000;
+}
+
+.flex-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
