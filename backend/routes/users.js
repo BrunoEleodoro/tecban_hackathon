@@ -10,15 +10,15 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/auth', async (req, res, next) => {
-  var login = req.body.login || "";
+  var cpf = req.body.cpf || "";
   var password = req.body.password || "";
 
-  if (login != null && password != null) {
+  if (cpf != null && password != null) {
     var db = await connect();
     queries.setDatabase(db);
-    var users = await queries.read({ login: login, password: password }, {}, {}, 'users')
+    var users = await queries.read({ cpf: cpf, password: password }, {}, {}, 'users')
     if (users.length > 0) {
-      var jwtToken = await token.generateToken(login);
+      var jwtToken = await token.generateToken(cpf);
       res.json({
         status: 200,
         token: jwtToken
@@ -41,22 +41,18 @@ router.post('/auth', async (req, res, next) => {
 
 
 router.post('/signup', async (req, res, next) => {
-  var login = req.body.login;
+  var phoneNumber = req.body.phoneNumber;
+  var birthDate = req.body.birthDate;
+  var cpf = req.body.cpf;
   var password = req.body.password;
-  var points = req.body.points;
-  var name = req.body.name;
-  var img = req.body.img;
-  var badge = req.body.badge;
-  if (login && password && points && name && img && badge) {
+  if (phoneNumber && birthDate && cpf && password) {
     var db = await connect();
     queries.setDatabase(db);
     var result = await queries.create({
-      login: login,
-      password: password,
-      points: points,
-      name: name,
-      img: img,
-      badge: badge
+      phoneNumber: phoneNumber,
+      birthDate: birthDate,
+      cpf: cpf,
+      password: password
     }, 'Users', 'users')
 
     console.log('result', result)

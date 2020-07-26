@@ -5,38 +5,38 @@ const queries = require('../utils/queries');
 const token = require('../utils/token');
 const { protectedRoute, basicAuthRoute } = require('../middlewares/auth');
 
-/* GET books listing. */
+/* GET houses listing. */
 router.get('/', protectedRoute, async function (req, res, next) {
   var db = await connect();
   queries.setDatabase(db);
-  var result = await queries.read({}, {}, {}, 'books')
+  var result = await queries.read({}, {}, {}, 'houses')
   res.json({
     status: 200,
-    books: result
+    houses: result
   })
 });
 
 router.post('/', basicAuthRoute, async (req, res, next) => {
   let title = req.body.title
   let description = req.body.description
-  let rating_star = req.body.rating_star
-  let rating_content = req.body.rating_content
-  let thumbnail = req.body.thumbnail
-  let pages = req.body.pages
-  let themes = req.body.themes
-  if (title && description && rating_star && rating_content && thumbnail && pages && themes) {
+  let rent_price = req.body.rent_price
+  let condominium = req.body.condominium
+  let iptu = req.body.iptu
+  let fire_insurance = req.body.fire_insurance
+  let total = req.body.total
+  if (title && description && rent_price && condominium && iptu && fire_insurance && total) {
     var db = await connect();
     queries.setDatabase(db);
 
     var result = await queries.create({
       title: title,
       description: description,
-      rating_star: rating_star,
-      rating_content: rating_content,
-      thumbnail: thumbnail,
-      pages: pages,
-      themes: themes,
-    }, 'Books', 'books')
+      rent_price: rent_price,
+      condominium: condominium,
+      iptu: iptu,
+      fire_insurance: fire_insurance,
+      total: total,
+    }, 'Houses', 'houses')
 
     console.log('result', result)
 
@@ -55,10 +55,10 @@ router.post('/', basicAuthRoute, async (req, res, next) => {
 router.delete('/', protectedRoute, async function (req, res, next) {
   var db = await connect();
   queries.setDatabase(db);
-  var result = await queries.read({}, {}, {}, 'books')
+  var result = await queries.read({}, {}, {}, 'houses')
   res.json({
     status: 200,
-    books: result
+    houses: result
   })
 });
 
