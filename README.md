@@ -24,7 +24,7 @@ ___
 
 ___
 
-<img src="https://readme-maker.herokuapp.com/uploads/ab2fba92e17dc329-67d4788b-5faf-456e-b019-76669d693a88.jpg" width="1200">
+![image](https://user-images.githubusercontent.com/56268564/88497860-f1aed680-cf97-11ea-8bc3-1dc2485c2a94.png)
 
 ## :information_source: Sobre
 
