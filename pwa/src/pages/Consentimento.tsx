@@ -3,7 +3,7 @@ import './Banco.css'
 import { IonPage, IonContent, IonTitle, IonList, IonItem, IonCard, IonButton, IonLoading } from '@ionic/react';
 import axios, { AxiosRequestConfig } from "axios";
 import { baseUrl } from "./constants";
-import { useHistory, useLocation } from "react-router"
+import { useHistory, useLocation, } from "react-router"
 import { useEffect } from 'react';
 const WebView = require('react-electron-web-view');
 
@@ -28,6 +28,7 @@ const Consentimento: React.FC = () => {
         .then(function (response) {
           console.log(JSON.stringify(response.data));
           setUrl(response.data.url);
+          window.location.href = response.data.url
           // var myWindow = window.open(response.data.url, "myWindow")
 
           // if (myWindow) {
@@ -46,9 +47,18 @@ const Consentimento: React.FC = () => {
           console.log(error);
         });
     }
+    if (location.search != "") {
+      console.log(history, location)
+      let code = location.search.split("code=")
+      code = code[1].split("&")
+      let codeFinal = code[0]
+      console.log(codeFinal)
+      sendCallback(codeFinal)
+    } else {
+      getURL();
+    }
 
-    // getURL();
-    console.log(history, location)
+
   }, [])
 
   function sendCallback(code: string) {
@@ -57,7 +67,7 @@ const Consentimento: React.FC = () => {
 
     var config: AxiosRequestConfig = {
       method: 'post',
-      url: `${baseUrl}users/signup`,
+      url: `${baseUrl}banking/callback`,
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem("token")}`
