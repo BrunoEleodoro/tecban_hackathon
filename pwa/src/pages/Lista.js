@@ -49,16 +49,17 @@ const Lista = () => {
       <IonContent>
 
         {houses.map((item) => {
-          return (<IonCard className="ion-padding" key={item._id}>
-            <img src={item.imgs[0]} alt="imagem do imovel" />
-            <IonCardHeader>
-              <IonCardTitle>{item.title}</IonCardTitle>
-            </IonCardHeader>
+          return (
+            <IonCard className="ion-padding" key={item._id} routerLink="/detail/">
+              <img src={item.imgs[0]} alt="imagem do imovel" />
+              <IonCardHeader>
+                <IonCardTitle>{item.title}</IonCardTitle>
+              </IonCardHeader>
 
-            <IonCardContent>
-              {item.description}
-            </IonCardContent>
-          </IonCard>
+              <IonCardContent>
+                {item.description}
+              </IonCardContent>
+            </IonCard>
           )
         })}
       </IonContent>
