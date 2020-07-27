@@ -28,6 +28,7 @@ import Login from './pages/Login';
 import Banco from './pages/Banco';
 import QrCode from './pages/QrCode';
 import Home from './pages/Home';
+import Lista from './pages/Lista';
 import Detail from './pages/Detail';
 import Consentimento from './pages/Consentimento';
 // import Home from './pages/Login';
@@ -45,6 +46,7 @@ const App: React.FC = () => (
         <Route path="/detail" component={Detail} exact={true} />
         <Route path="/consentimento" component={Consentimento} exact={true} />
         <Route path="/home" component={Home} exact={true} />
+        <Route path="/lista" component={Lista} exact={true} />
         <Route exact path="/" render={() => <Redirect to="/login" />} />
       </IonRouterOutlet>
     </IonReactRouter>
