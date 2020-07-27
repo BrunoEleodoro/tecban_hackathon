@@ -42,7 +42,7 @@ const App: React.FC = () => (
         <Route path="/tipo-contrato" component={Banco} exact={true} />
         <Route path="/qrcode" component={QrCode} exact={true} />
         <Route path="/home" component={Home} exact={true} />
-        <Route path="/detail" component={Detail} exact={true} />
+        <Route path="/detail/:id" component={Detail} exact={true} />
         <Route path="/consentimento" component={Consentimento} exact={true} />
         <Route path="/home" component={Home} exact={true} />
         <Route exact path="/" render={() => <Redirect to="/login" />} />

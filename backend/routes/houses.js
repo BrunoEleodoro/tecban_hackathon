@@ -64,5 +64,22 @@ router.delete('/', protectedRoute, async function (req, res, next) {
   })
 });
 
+router.get('/house/:id', async (req, res) => {
+  if (id) {
+    var db = await connect();
+    queries.setDatabase(db);
+    var result = await queries.read({_id: req.params.id}, {}, {}, 'houses')
+    res.json({
+      status: 200,
+      house: result
+    })
+  } else {
+    res.json({
+      status: 201,
+      message: 'missing parameters'
+    })
+  }
+})
+
 
 module.exports = router;
