@@ -88,7 +88,7 @@ const Detail: React.FC = () => {
                         </div>
                         <div className='inline-flex'>
                             <p>Total</p>
-                            <p>{`R$ ${1100.00}`}</p>
+                            <p>{`R$ 1100.00`}</p>
                         </div>
                     </div>
                     <div id="btn-div">
