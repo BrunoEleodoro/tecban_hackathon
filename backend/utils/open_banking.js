@@ -95,7 +95,7 @@ function functionalToken(code) {
                 'grant_type': 'authorization_code',
                 'scope': 'accounts ',
                 'code': `${code}`,
-                'redirect_uri': 'http://www.google.co.uk'
+                'redirect_uri': 'http://localhost:3000/consentimento'
             }
         };
         request(options, function (error, response) {

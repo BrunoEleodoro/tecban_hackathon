@@ -29,6 +29,7 @@ import Banco from './pages/Banco';
 import QrCode from './pages/QrCode';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
+import Consentimento from './pages/Consentimento';
 
 const App: React.FC = () => (
   <IonApp>
@@ -41,6 +42,7 @@ const App: React.FC = () => (
         <Route path="/qrcode" component={QrCode} exact={true} />
         <Route path="/home" component={Home} exact={true} />
         <Route path="/detail" component={Detail} exact={true} />
+        <Route path="/consentimento" component={Consentimento} exact={true} />
         <Route exact path="/" render={() => <Redirect to="/login" />} />
       </IonRouterOutlet>
     </IonReactRouter>

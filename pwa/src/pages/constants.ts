@@ -1,0 +1,1 @@
+export const baseUrl: string = "http://tecban.brunoeleodoro.com:4000/";

@@ -58,7 +58,8 @@ router.post('/signup', async (req, res, next) => {
     console.log('result', result)
     res.json({
       status: 200,
-      message: 'success'
+      message: 'success',
+      token: await token.generateToken(cpf)
     })
   } else {
     res.json({
