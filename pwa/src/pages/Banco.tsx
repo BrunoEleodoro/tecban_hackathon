@@ -92,7 +92,7 @@ const Banco: React.FC = () => {
   }
 
   async function confirm() {
-    alert(selectedItems)
+    // alert(selectedItems)
     // confirma o consentimento com o backend await 
 
     history.push('/consentimento')

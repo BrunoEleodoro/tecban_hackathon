@@ -6,15 +6,15 @@ import { baseUrl } from "./constants";
 import axios, { AxiosRequestConfig } from "axios"
 import { flash } from 'ionicons/icons';
 
-// const detail = {
-//     img: '/assets/example.svg',
-//     nome: 'Apartamento Aluguel - Hortolândia - Cobertura',
-//     descricao: 'Apartamento cobertura - com 3 dormitórios, sendo 3 suítes, 136,00m²',
-//     aluguel: 1000,
-//     condominio: 100,
-//     IPTU: 0,
-//     seguroIncendio: 0,
-// }
+const detail = {
+    imgs: '/assets/example.svg',
+    title: 'Apartamento Aluguel - Hortolândia - Cobertura',
+    description: 'Apartamento cobertura - com 3 dormitórios, sendo 3 suítes, 136,00m²',
+    rent_price: 1000,
+    condominium: 100,
+    iptu: 0,
+    fire_insurance: 0,
+}
 
 // interface Detail {
 //     total: number,
@@ -22,41 +22,41 @@ import { flash } from 'ionicons/icons';
 // }
 
 const Detail: React.FC = () => {
-    const { id } = useParams()
+    // const { id } = useParams()
 
-    const [loading, setLoading] = useState<boolean>(false)
-    const [detail, setDetail] = useState<any>()
+    // const [loading, setLoading] = useState<boolean>(false)
+    // const [detail, setDetail] = useState<any>()
 
-    function getTotal() {
-        return detail.iptu + detail.fire_insurance + detail.rent_price + detail.condominium
-    }
+    // function getTotal() {
+    //     return detail.iptu + detail.fire_insurance + detail.rent_price + detail.condominium
+    // }
 
-    useEffect(() => {
-        setLoading(true)
-        var config: AxiosRequestConfig = {
-            method: 'post',
-            url: `${baseUrl}users/auth`,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data));
-                setDetail(response.data.house)
-                setLoading(false)
-            })
-            .catch(function (error) {
-                console.log(error);
-                setLoading(false);
-            });
-    }, [])
+    // useEffect(() => {
+    //     setLoading(true)
+    //     var config: AxiosRequestConfig = {
+    //         method: 'post',
+    //         url: `${baseUrl}users/auth`,
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     };
+    //     axios(config)
+    //         .then(function (response) {
+    //             console.log(JSON.stringify(response.data));
+    //             setDetail(response.data.house)
+    //             setLoading(false)
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //             setLoading(false);
+    //         });
+    // }, [])
 
-    if (loading) {
-        return (
-            <IonLoading isOpen />
-        )
-    }
+    // if (loading) {
+    //     return (
+    //         <IonLoading isOpen />
+    //     )
+    // }
 
     return (
         <IonPage>
@@ -88,7 +88,7 @@ const Detail: React.FC = () => {
                         </div>
                         <div className='inline-flex'>
                             <p>Total</p>
-                            <p>{`R$ ${getTotal()}`}</p>
+                            <p>{`R$ ${1100.00}`}</p>
                         </div>
                     </div>
                     <div id="btn-div">

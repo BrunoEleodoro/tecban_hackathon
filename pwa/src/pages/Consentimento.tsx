@@ -5,7 +5,6 @@ import axios, { AxiosRequestConfig } from "axios";
 import { baseUrl } from "./constants";
 import { useHistory, useLocation, } from "react-router"
 import { useEffect } from 'react';
-const WebView = require('react-electron-web-view');
 
 
 const Consentimento: React.FC = () => {

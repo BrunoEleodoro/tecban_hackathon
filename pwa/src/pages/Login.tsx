@@ -72,7 +72,7 @@ const Home: React.FC = () => {
         <p className="text-right">Esqueceu a senha?</p>
         <button className='buttonEntrar' onClick={signIn}>Entrar</button>
         <p className='text-conta'>
-          <b>Não tem uma conta?</b> <IonRouterLink routerLink="/cadastro">Catasdrar</IonRouterLink>
+          <b>Não tem uma conta?</b> <IonRouterLink routerLink="/cadastro">Cadastrar</IonRouterLink>
         </p>
       </IonContent>
     </IonPage >
