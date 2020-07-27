@@ -17,15 +17,10 @@ router.get('/', protectedRoute, async function (req, res, next) {
 });
 
 router.post('/', basicAuthRoute, async (req, res, next) => {
-  let imgs = req.body.imgs
-  let title = req.body.title
-  let description = req.body.description
-  let rent_price = req.body.rent_price
-  let condominium = req.body.condominium
-  let iptu = req.body.iptu
-  let fire_insurance = req.body.fire_insurance
-  let total = req.body.total
-  if (title && imgs && description && rent_price && condominium && iptu && fire_insurance && total) {
+
+  const { imgs, title, description, rent_price, condominium, iptu, fire_insurance, total } = req.body;
+
+  if (imgs && title && description && rent_price && condominium && iptu && fire_insurance && total) {
     var db = await connect();
     queries.setDatabase(db);
 
@@ -49,7 +44,15 @@ router.post('/', basicAuthRoute, async (req, res, next) => {
   } else {
     res.json({
       status: 201,
-      message: 'missing parameters'
+      message: 'missing parameters',
+      imgs: imgs,
+      title: title,
+      description: description,
+      rent_price: rent_price,
+      condominium: condominium,
+      iptu: iptu,
+      fire_insurance: fire_insurance,
+      total: total,
     })
   }
 })
