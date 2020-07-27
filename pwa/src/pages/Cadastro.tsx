@@ -36,11 +36,9 @@ const Cadastro: React.FC = () => {
             .then(function (response) {
                 console.log(JSON.stringify(response.data));
                 localStorage.setItem("token", response.data.token.token);
-                let cpfParam = cpf;
-                if (cpfParam) {
-                    localStorage.setItem("cpf", cpfParam);
+                if (cpf) {
+                    localStorage.setItem("cpf", cpf);
                 }
-
                 setLoading(false);
                 history.push('/banco')
             })
