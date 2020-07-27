@@ -1,16 +1,66 @@
-# tecban_hackathon
+<h2 align="center">Hackthon TecBan</h2>
 
-A new Flutter project.
+___
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<p align="center">
+  <a href="LICENSE">
+    <img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D">
+  </a>
+</p>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+___
+
+<h3 align="center">
+  <a href="#information_source-sobre">Sobre</a>&nbsp;|&nbsp;
+  <a href="#interrobang-motivo">Motivo</a>&nbsp;|&nbsp;
+  <a href="#seedling-requisitos-mínimos">Requisitos</a>&nbsp;|&nbsp;
+  <a href="#rocket-tecnologias-utilizadas">Tecnologias</a>&nbsp;|&nbsp;
+  <a href="#link-como-contribuir">Como Contribuir</a>&nbsp;|&nbsp;
+  <a href="#licença">Licença</a>
+</h3>
+
+___
+
+<img src="https://readme-maker.herokuapp.com/uploads/ab2fba92e17dc329-67d4788b-5faf-456e-b019-76669d693a88.jpg" width="1200">
+
+## :information_source: Sobre
+
+Pensando em resolver este grande problema da vida dos brasileiros que não possuem casa própria criamos a Cobertura, uma solução que analisa o perfil do possível inquilino utilizando a tecnologia OPENBANKING, uma ferramenta tecnológica de ponta e extremamente inovadora que possibilita mediante a acesso autorizado do usuário aos seus dados bancários, permitindo assim uma análise somente pelo sistema que verificará seu histórico avisando quase que instantaneamente se é ou não um bom pagador.
+Sem burocracia e o mais rápido possível o usuário terá a resposta e já poderá sendo aprovado dar continuidade no processo de locação executado pela imobiliária, agilizando e facilitando a vida de quem quer alugar e agregando valor para que vive de locar.
+
+
+## :interrobang: Motivo
+
+Dos 71 milhões de domicílios existentes no Brasil em 2018, 12,9 milhões eram alugados. Os números, que revelam um aumento de 5,3% na comparação com 2017, constam da Pesquisa Nacional por Amostra de Domicílios Contínua
+
+## :seedling: Requisitos Mínimos
+
+    NodeJS
+    Docker
+    ReactJS
+    MongoDB
+
+## :rocket: Tecnologias Utilizadas 
+
+O projeto foi desenvolvido utilizando as seguintes tecnologias
+
+    Express
+    Ionic
+    TecBan APIs
+
+## :link: Como contribuir 
+
+- Faça um Fork do repositório
+- Clone o seu repositório
+- Crie uma branch com a sua feature
+- Faça um commit com suas mudanças
+- 'Push' a sua branch
+- Ir em Pull Requests do projeto original e criar uma pull request com o seu commit
+
+## Licença 
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+    

@@ -8,9 +8,12 @@ module.exports = {
 function protectedRoute(req, res, next) {
     var token = req.headers.authorization
     try {
-        token = token.split(' ')
-        token = token[1]
-        request.get('http://cobertura-auth:5001/verify?token=' + token, (error, response, body) => {
+        const [Scheme, Token] = token.split(' ')
+
+        if (!/^Bearer$/i.test(scheme))
+            return res.status(403).send({ status: 403, valid: false })
+
+        request.get('http://cobertura-auth:5001/verify?token=' + Token, (error, response, body) => {
             if (error) {
                 res.status(403).send({ status: 403, valid: false })
             } else if (JSON.parse(body).valid != undefined && JSON.parse(body).valid == false) {
