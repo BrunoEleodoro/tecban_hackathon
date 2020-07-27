@@ -27,10 +27,10 @@ import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import Banco from './pages/Banco';
 import QrCode from './pages/QrCode';
-// import Home from './pages/Home';
+import Home from './pages/Home';
 import Detail from './pages/Detail';
 import Consentimento from './pages/Consentimento';
-import Home from './pages/Login';
+// import Home from './pages/Login';
 
 const App: React.FC = () => (
   <IonApp>
