@@ -16,6 +16,11 @@ import { flash } from 'ionicons/icons';
 //     seguroIncendio: 0,
 // }
 
+// interface Detail {
+//     total: number,
+
+// }
+
 const Detail: React.FC = () => {
     const { id } = useParams()
 
